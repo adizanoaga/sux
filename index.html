@@ -23,6 +23,13 @@
         font-family: Arial, Helvetica, sans-serif;
       }
 
+      .brand {
+        display: flex;
+        align-items: baseline;
+        gap: clamp(0.75rem, 2vw, 1.5rem);
+        padding: 2rem;
+      }
+
       h1 {
         margin: 0;
         font-size: clamp(4rem, 18vw, 12rem);
@@ -30,9 +37,27 @@
         line-height: 1;
         letter-spacing: 0;
       }
+
+      .byline {
+        font-size: clamp(0.9rem, 2vw, 1.35rem);
+        font-weight: 700;
+        color: #ff9bd3;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 520px) {
+        .brand {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
+        }
+      }
     </style>
   </head>
   <body>
-    <h1>SUX</h1>
+    <main class="brand" aria-label="SUX by CAP Holdings">
+      <h1>SUX</h1>
+      <p class="byline">by CAP Holdings</p>
+    </main>
   </body>
 </html>
