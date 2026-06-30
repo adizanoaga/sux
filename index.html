@@ -52,6 +52,12 @@
         backdrop-filter: blur(14px);
       }
 
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: clamp(0.75rem, 2vw, 1.5rem);
+      }
+
       .logo {
         display: flex;
         align-items: baseline;
@@ -83,6 +89,84 @@
 
       .nav a:hover,
       .nav a:focus-visible {
+        color: var(--pink);
+      }
+
+      .social-link {
+        display: grid;
+        place-items: center;
+        width: 2.25rem;
+        height: 2.25rem;
+        color: var(--pink);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .social-link:hover,
+      .social-link:focus-visible {
+        color: var(--bg);
+        background: var(--pink);
+      }
+
+      .social-link svg {
+        width: 1.1rem;
+        height: 1.1rem;
+      }
+
+      .mobile-menu {
+        display: none;
+        position: relative;
+      }
+
+      .mobile-actions {
+        display: none;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .mobile-menu summary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.45rem;
+        padding: 0 0.9rem;
+        color: var(--pink);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        cursor: pointer;
+        list-style: none;
+      }
+
+      .mobile-menu summary::-webkit-details-marker {
+        display: none;
+      }
+
+      .mobile-menu-panel {
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        right: 0;
+        display: grid;
+        gap: 0.8rem;
+        min-width: 13rem;
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.96);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+      }
+
+      .mobile-nav {
+        display: grid;
+        gap: 0.85rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+        font-weight: 800;
+      }
+
+      .mobile-nav a:hover,
+      .mobile-nav a:focus-visible {
         color: var(--pink);
       }
 
@@ -197,6 +281,61 @@
         font-size: 1.1rem;
       }
 
+      .name-row,
+      .artist-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+
+      .name-row h3 {
+        margin: 0;
+      }
+
+      .mini-social-link,
+      .contact-link {
+        color: var(--pink);
+      }
+
+      .mini-social-link {
+        display: inline-grid;
+        place-items: center;
+        width: 1.45rem;
+        height: 1.45rem;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        vertical-align: middle;
+      }
+
+      .mini-social-link:hover,
+      .mini-social-link:focus-visible,
+      .contact-link:hover,
+      .contact-link:focus-visible {
+        color: var(--soft-pink);
+      }
+
+      .mini-social-link svg {
+        width: 0.8rem;
+        height: 0.8rem;
+      }
+
+      .contact-link {
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 79, 184, 0.55);
+        text-underline-offset: 0.25em;
+      }
+
+      .contact-social-link {
+        width: 2.4rem;
+        height: 2.4rem;
+        border-radius: 8px;
+      }
+
+      .contact-social-link svg {
+        width: 1.35rem;
+        height: 1.35rem;
+      }
+
       .card p {
         margin-top: 0.8rem;
         color: var(--muted);
@@ -210,9 +349,10 @@
         font-weight: 900;
       }
 
-      @media (max-width: 520px) {
+      @media (max-width: 720px) {
         .site-header {
-          align-items: flex-start;
+          align-items: center;
+          gap: 1rem;
         }
 
         .logo,
@@ -226,11 +366,16 @@
           align-items: flex-start;
         }
 
-        .nav {
-          flex-wrap: wrap;
-          justify-content: flex-end;
-          max-width: 8rem;
-          gap: 0.6rem;
+        .header-actions {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+
+        .mobile-actions {
+          display: flex;
         }
 
         .grid {
@@ -245,12 +390,53 @@
         <span class="logo-text">SUX</span>
         <span class="logo-byline">by CAP Holdings</span>
       </a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#despre">Despre</a>
-        <a href="#sonorizari">Sonorizari</a>
-        <a href="#artisti">Artisti pare a comunitatii</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="header-actions">
+        <a
+          class="social-link"
+          href="https://www.instagram.com/sux.rec/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="SUX Records pe Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+            <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+          </svg>
+        </a>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#despre">Despre</a>
+          <a href="#sonorizari">Sonorizari</a>
+          <a href="#artisti">Artisti pare a comunitatii</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+      <div class="mobile-actions">
+        <a
+          class="social-link"
+          href="https://www.instagram.com/suxrecords/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="SUX Records pe Instagram"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+            <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+          </svg>
+        </a>
+        <details class="mobile-menu">
+          <summary>Menu</summary>
+          <div class="mobile-menu-panel">
+            <nav class="mobile-nav" aria-label="Mobile navigation">
+              <a href="#despre">Despre</a>
+              <a href="#sonorizari">Sonorizari</a>
+              <a href="#artisti">Artisti</a>
+              <a href="#contact">Contact</a>
+            </nav>
+          </div>
+        </details>
+      </div>
     </header>
 
     <main id="top">
@@ -283,23 +469,59 @@
           <h2 id="sonorizari-title">Sonorizari</h2>
           <div class="grid">
             <article class="card">
-              <h3>Andrei Afloarei</h3>
+              <div class="name-row">
+                <h3>Andrei Afloarei</h3>
+                <a class="mini-social-link" href="https://www.instagram.com/andrei.aflr/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Andrei Afloarei">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                    <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+                  </svg>
+                </a>
+              </div>
               <p>Producator muzical</p>
               <p>Inginer de sunet live</p>
             </article>
             <article class="card">
-              <h3>Armand Popa</h3>
+              <div class="name-row">
+                <h3>Armand Popa</h3>
+                <a class="mini-social-link" href="https://www.instagram.com/armandpopa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Armand Popa">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                    <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+                  </svg>
+                </a>
+              </div>
               <p>Producator muzical</p>
               <p>Inginer de sunet live</p>
             </article>
             <article class="card">
-              <h3>Adi Zanoaga</h3>
+              <div class="name-row">
+                <h3>Adi Zanoaga</h3>
+                <a class="mini-social-link" href="https://www.instagram.com/adizanoaga/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Adi Zanoaga">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                    <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+                  </svg>
+                </a>
+              </div>
               <p>Tehnician sunet</p>
               <p>Inginer de sunet live</p>
               <p>Specialist automatizari</p>
             </article>
               <article class="card">
-              <h3>Alex Popa</h3>
+              <div class="name-row">
+                <h3>Alex Popa</h3>
+                <a class="mini-social-link" href="https://www.instagram.com/alex_popa_trv_29/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Alex Popa">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                    <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                    <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+                  </svg>
+                </a>
+              </div>
               <p>Tehnician sunet</p>
               <p>Inginer de sunet live</p>
             </article>
@@ -312,10 +534,28 @@
           <p class="eyebrow">Artisti colaboratori</p>
           <!-- <h2 id="artists-title">Trupe parte a comunicatii SUX</h2> -->
           <p class="section-copy">
-           Not my cup of tea
+            <span class="artist-row">
+              Not my cup of tea
+              <a class="mini-social-link" href="https://www.instagram.com/notmycupofteaband/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Not my cup of tea">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                  <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+                </svg>
+              </a>
+            </span>
           </p>
           <p class="section-copy">
-           Armand Popa
+            <span class="artist-row">
+              Armand Popa
+              <a class="mini-social-link" href="https://www.instagram.com/armandpopa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Armand Popa">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                  <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+                </svg>
+              </a>
+            </span>
           </p>
         </div>
       </section>
@@ -327,7 +567,24 @@
           <p class="section-copy">
             Raspundem repede pentru ca timpul este o resursa importanta
           </p>
-          <p class="contact-line">sux.rec@gmail.com</p>
+          <p class="contact-line">
+            <span class="artist-row">
+              Instagram 
+              <a class="mini-social-link contact-social-link" href="https://www.instagram.com/sux.rec/" target="_blank" rel="noopener noreferrer" aria-label="Instagram SUX Records">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                  <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                  <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+                </svg>
+              </a>
+            </span>
+          </p>
+          <p class="contact-line">
+            Email:
+            <a class="contact-link" href="mailto:sux.rec@gmail.com">
+              sux.rec@gmail.com
+            </a>
+          </p>
         </div>
       </section>
     </main>
