@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ro">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -439,10 +439,10 @@
             <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
           </svg>
         </a>
-        <nav class="nav" aria-label="Main navigation">
+        <nav class="nav" aria-label="Navigație principală">
           <a href="#despre">Despre</a>
-          <a href="#sonorizari">Sonorizari</a>
-          <a href="#artisti">Artistii comunitatii</a>
+          <a href="#sonorizari">Sonorizări</a>
+          <a href="#artisti">Artiștii comunității</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -461,12 +461,12 @@
           </svg>
         </a>
         <details class="mobile-menu">
-          <summary>Menu</summary>
+          <summary>Meniu</summary>
           <div class="mobile-menu-panel">
-            <nav class="mobile-nav" aria-label="Mobile navigation">
+            <nav class="mobile-nav" aria-label="Navigație mobilă">
               <a href="#despre">Despre</a>
-              <a href="#sonorizari">Sonorizari</a>
-              <a href="#artisti">Artisti</a>
+              <a href="#sonorizari">Sonorizări</a>
+              <a href="#artisti">Artiști</a>
               <a href="#contact">Contact</a>
             </nav>
           </div>
@@ -483,25 +483,25 @@
           </div>
           <p class="hero-copy">
           </p>
-          <a class="scroll-cue" href="#despre">Scroll for more</a>
+          <a class="scroll-cue" href="#despre">Derulează</a>
         </div>
       </section>
 
       <section id="despre" aria-labelledby="despre-title">
         <div class="section-inner">
           <p class="eyebrow">SUX Records</p>
-          <h2 id="despre-title">O comunitate muzicala pe care te poti baza</h2>
+          <h2 id="despre-title">O comunitate muzicală pe care te poți baza</h2>
           <p class="section-copy">
-            SUX Records este o comunitate muzicala din Bucuresti cu oameni dedicati si cu o experienta muzicala vasta.
-            Muzica este o parte importanta din viata noastra si o tratam cu respect si seriozitate.
+            SUX Records este o comunitate muzicală din București cu oameni dedicați și cu o experiență muzicală vastă.
+            Muzica este o parte importantă din viața noastră și o tratăm cu respect și seriozitate.
           </p>
         </div>
       </section>
 
       <section id="sonorizari" aria-labelledby="sonorizari-title">
         <div class="section-inner">
-          <p class="eyebrow">Activitati</p>
-          <h2 id="sonorizari-title">Sonorizari</h2>
+          <p class="eyebrow">Activități</p>
+          <h2 id="sonorizari-title">Sonorizări</h2>
           <div class="grid">
             <article class="card">
               <div class="name-row">
@@ -514,7 +514,7 @@
                   </svg>
                 </a>
               </div>
-              <p>Producator muzical</p>
+              <p>Producător muzical</p>
               <p>Inginer de sunet live</p>
             </article>
             <article class="card">
@@ -528,7 +528,7 @@
                   </svg>
                 </a>
               </div>
-              <p>Producator muzical</p>
+              <p>Producător muzical</p>
               <p>Inginer de sunet live</p>
             </article>
             <article class="card">
@@ -544,7 +544,7 @@
               </div>
               <p>Tehnician sunet</p>
               <p>Inginer de sunet live</p>
-              <p>Specialist automatizari</p>
+              <p>Specialist automatizări</p>
             </article>
               <article class="card">
               <div class="name-row">
@@ -566,8 +566,8 @@
 
       <section id="artisti" aria-labelledby="artisti-title">
         <div class="section-inner">
-          <p class="eyebrow">Artisti colaboratori</p>
-          <h2 id="artisti-title">Inima comunitatii</h2>
+          <p class="eyebrow">Artiști colaboratori</p>
+          <h2 id="artisti-title">Inima comunității</h2>
           <div class="grid">
             <article class="card artist-card">
               <div class="artist-photo has-image">
@@ -614,9 +614,9 @@
       <section id="contact" aria-labelledby="contact-title">
         <div class="section-inner">
           <p class="eyebrow">Contact</p>
-          <h2 id="contact-title">Ne puteti contacta pe instagram sau pe email</h2>
+          <h2 id="contact-title">Ne puteți contacta pe Instagram sau pe email</h2>
           <p class="section-copy">
-            Raspundem repede pentru ca timpul este o resursa importanta
+            Răspundem repede pentru că timpul este o resursă importantă.
           </p>
           <p class="contact-line">
             <span class="artist-row">
@@ -639,5 +639,24 @@
         </div>
       </section>
     </main>
+    <script>
+      const mobileMenu = document.querySelector(".mobile-menu");
+
+      document.addEventListener("click", (event) => {
+        if (!mobileMenu || !mobileMenu.open) {
+          return;
+        }
+
+        if (!mobileMenu.contains(event.target)) {
+          mobileMenu.open = false;
+        }
+      });
+
+      mobileMenu?.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.open = false;
+        });
+      });
+    </script>
   </body>
 </html>
