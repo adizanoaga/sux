@@ -342,6 +342,21 @@
         line-height: 1.55;
       }
 
+      .service-card {
+        position: relative;
+        padding-bottom: 4rem;
+      }
+
+      .service-price {
+        position: absolute;
+        right: 1.35rem;
+        bottom: 1.15rem;
+        margin: 0;
+        color: var(--pink);
+        font-weight: 900;
+        text-align: right;
+      }
+
       .artist-card {
         overflow: hidden;
         padding: 0;
@@ -384,6 +399,20 @@
         font-weight: 900;
       }
 
+      @media (max-width: 900px) {
+        .header-actions {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+
+        .mobile-actions {
+          display: flex;
+        }
+      }
+
       @media (max-width: 720px) {
         .site-header {
           align-items: center;
@@ -399,18 +428,6 @@
 
         .logo {
           align-items: flex-start;
-        }
-
-        .header-actions {
-          display: none;
-        }
-
-        .mobile-menu {
-          display: block;
-        }
-
-        .mobile-actions {
-          display: flex;
         }
 
         .grid {
@@ -441,8 +458,9 @@
         </a>
         <nav class="nav" aria-label="Navigație principală">
           <a href="#despre">Despre</a>
-          <a href="#sonorizari">Sonorizări</a>
           <a href="#artisti">Artiștii comunității</a>
+          <a href="#oameni-tehnici">Oameni tehnici</a>
+          <a href="#servicii">Servicii și echipamente</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -465,8 +483,9 @@
           <div class="mobile-menu-panel">
             <nav class="mobile-nav" aria-label="Navigație mobilă">
               <a href="#despre">Despre</a>
-              <a href="#sonorizari">Sonorizări</a>
               <a href="#artisti">Artiști</a>
+              <a href="#oameni-tehnici">Oameni tehnici</a>
+              <a href="#servicii">Servicii</a>
               <a href="#contact">Contact</a>
             </nav>
           </div>
@@ -498,10 +517,57 @@
         </div>
       </section>
 
-      <section id="sonorizari" aria-labelledby="sonorizari-title">
+      <section id="artisti" aria-labelledby="artisti-title">
         <div class="section-inner">
-          <p class="eyebrow">Activități</p>
-          <h2 id="sonorizari-title">Sonorizări</h2>
+          <p class="eyebrow">Artiști colaboratori</p>
+          <h2 id="artisti-title">Inima comunității</h2>
+          <div class="grid">
+            <article class="card artist-card">
+              <div class="artist-photo has-image">
+                <img src="assets/notmycupoftea.png" alt="Not my cup of tea">
+                <span>Poza trupei</span>
+              </div>
+              <div class="artist-card-content">
+                <div class="name-row">
+                  <h3>Not my cup of tea</h3>
+                  <a class="mini-social-link" href="https://www.instagram.com/notmycupofteaband/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Not my cup of tea">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                      <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+                    </svg>
+                  </a>
+                </div>
+                <p>Not My Cup of Tea is a project shaped between Piatra Neamț and Bucharest, blending alternative rock, shoegaze, and dream-pop into a lo-fi, atmospheric sound.What began in 2019 as a simple jam session slowly evolved into a full band, with members joining from different cities and bringing new layers into the project. Their debut album DWELL, recorded in a small bedroom setting, reflects this process, a raw and intimate exploration of endings, whether personal, social, or emotional. After moving to Bucharest and refining their sound through rehearsals and lineup changes, the band continues to grow, with a second album set for release soon.</p>
+              </div>
+            </article>
+            <article class="card artist-card">
+              <div class="artist-photo has-image">
+                <img src="assets/armandpopa.png" alt="Armand Popa">
+                <span>Poza artistului</span>
+              </div>
+              <div class="artist-card-content">
+                <div class="name-row">
+                  <h3>Armand Popa</h3>
+                  <a class="mini-social-link" href="https://www.instagram.com/armandpopa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Armand Popa">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
+                      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                      <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
+                    </svg>
+                  </a>
+                </div>
+                <p>Armand Popa is a Bucharest-based artist and producer whose sound has evolved from indie-leaning psychedelic rock and shoegaze into a raw, high-energy psychedelic rock direction. Entirely self-produced and shaped by years of writing and producing for other artists, his music is driven by fuzz-drenched guitars and immersive textures. Balancing intensity with atmosphere, his work offers a sharp, critical reflection on modern society and its emotional weight. His upcoming album, recorded at Avanpost Studio, captures this shift and is built for an intense and visceral live experience.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="oameni-tehnici" aria-labelledby="oameni-tehnici-title">
+        <div class="section-inner">
+          <p class="eyebrow">Resursa umana</p>
+          <h2 id="oameni-tehnici-title">Oameni tehnici</h2>
           <div class="grid">
             <article class="card">
               <div class="name-row">
@@ -564,48 +630,50 @@
         </div>
       </section>
 
-      <section id="artisti" aria-labelledby="artisti-title">
+      <section id="servicii" aria-labelledby="servicii-title">
         <div class="section-inner">
-          <p class="eyebrow">Artiști colaboratori</p>
-          <h2 id="artisti-title">Inima comunității</h2>
+          <p class="eyebrow">Servicii și echipamente</p>
+          <h2 id="servicii-title">Pachete disponibile pentru sonorizări</h2>
           <div class="grid">
-            <article class="card artist-card">
-              <div class="artist-photo has-image">
-                <img src="assets/notmycupoftea.png" alt="Not my cup of tea">
-                <span>Poza trupei</span>
-              </div>
-              <div class="artist-card-content">
-                <div class="name-row">
-                  <h3>Not my cup of tea</h3>
-                  <a class="mini-social-link" href="https://www.instagram.com/notmycupofteaband/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Not my cup of tea">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
-                      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
-                      <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
-                    </svg>
-                  </a>
-                </div>
-                <p>Not My Cup of Tea is a project shaped between Piatra Neamț and Bucharest, blending alternative rock, shoegaze, and dream-pop into a lo-fi, atmospheric sound.What began in 2019 as a simple jam session slowly evolved into a full band, with members joining from different cities and bringing new layers into the project. Their debut album DWELL, recorded in a small bedroom setting, reflects this process, a raw and intimate exploration of endings, whether personal, social, or emotional. After moving to Bucharest and refining their sound through rehearsals and lineup changes, the band continues to grow, with a second album set for release soon.</p>
-              </div>
+            <article class="card service-card">
+              <h3>Sunetist + Behringer X Air XR18</h3>
+              <p>Un inginer a sunet vine la locatie cu mixerul digital + router + tableta si se ocupa de organizarea scenei, probe de sunet si comunicarea cu artistii pe partea tehnica. Scenele se pot salva separat pentru fiecare artist in parte.</p>
+              <p class="service-price">100 de euro</p>
             </article>
-            <article class="card artist-card">
-              <div class="artist-photo has-image">
-                <img src="assets/armandpopa.png" alt="Armand Popa">
-                <span>Poza artistului</span>
-              </div>
-              <div class="artist-card-content">
-                <div class="name-row">
-                  <h3>Armand Popa</h3>
-                  <a class="mini-social-link" href="https://www.instagram.com/armandpopa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Armand Popa">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
-                      <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
-                      <circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"></circle>
-                    </svg>
-                  </a>
-                </div>
-                <p>Armand Popa is a Bucharest-based artist and producer whose sound has evolved from indie-leaning psychedelic rock and shoegaze into a raw, high-energy psychedelic rock direction. Entirely self-produced and shaped by years of writing and producing for other artists, his music is driven by fuzz-drenched guitars and immersive textures. Balancing intensity with atmosphere, his work offers a sharp, critical reflection on modern society and its emotional weight. His upcoming album, recorded at Avanpost Studio, captures this shift and is built for an intense and visceral live experience.</p>
-              </div>
+            <article class="card service-card">
+              <h3>Boxe Yamaha DXR15</h3>
+              <p>Recomandam pachetul de 2 boxe Yamaha pentru o sala interioara de pana la 100mp. La cerere mai exista si o suplimentare cu 2 subwooferi Yamaha DXS15 (50 euro/bucata)</p>
+              <p class="service-price">50 de euro / bucată</p>
+            </article>
+            <article class="card service-card">
+              <h3>Behringer X32 Rack + IEM wireless complet (Sennheiser G4)</h3>
+              <p>Acest pachet este pentru trupe care merg in orice locatie, toate intrarile de la instrumente vin in mixerul nostru ca poate trimite la FOH mixul trupei, iar instrumentistii isi controleaza mixul personal din casa de pe telefon/tableta prin Mixing Station</p>
+              <p class="service-price">100 de euro</p>
+            </article>
+            <article class="card service-card">
+              <h3>2 x Behringer Eurolive B212D</h3>
+              <p>Acestea este un pachet cu 2 boxe pentru sali mai mici sau conferinte</p>
+              <p class="service-price">50 de euro amandoua</p>
+            </article>
+            <article class="card service-card">
+              <h3>Accesorii</h3>
+              <p>Cabluri, DI-uri și microfoane. Acest pachet vine in completarea pachetului cu Sunetist, dar poate fi de sine statator in cazul in care se cer doar preampuri de casti pe fir pentru scenele care nu au monitorizare</p>
+              <p class="service-price">50 de euro</p>
+            </article>
+            <article class="card service-card">
+              <h3>Tehnician suplimentar</h3>
+              <p>Pentru a avea o instalare si o proba de sunet cat mai rapida si pentru a avea cat mai putina presiune pe artisti, recomandam un om tehnic suplimentar care se ocupa de scena in timp ce sunetistul se concentreaza pe mixer si pe sunet</p>
+              <p class="service-price">50 de euro</p>
+            </article>
+            <article class="card service-card">
+              <h3>Amplificatoare de chitara</h3>
+              <p>Avem un VOX AC30, un Bos Katana si un Fender Rumble 100, sunt suficiente pentru scene sau sali, de obicei noi recomandam in ear, dar putem amplifica si difuzoarele amplificatoarelor daca asa prefera artistii</p>
+              <p class="service-price">50 de euro / bucată</p>
+            </article>
+            <article class="card service-card">
+              <h3>Transport si manipulare</h3>
+              <p>Avem o masina cu care putem sa ducem si sa aducem echipamentele de la locatia noastra din Flaros (Timpuri noi/Mihai Bravu) catre locatia evenimentului</p>
+              <p class="service-price">50 de euro</p>
             </article>
           </div>
         </div>
