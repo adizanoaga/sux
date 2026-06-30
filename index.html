@@ -3,35 +3,125 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SUX</title>
+    <title>SUX Records</title>
     <style>
       :root {
         color-scheme: dark;
+        --bg: #000;
+        --text: #fff3fa;
+        --muted: #d9a8c4;
+        --pink: #ff4fb8;
+        --soft-pink: #ff9bd3;
+        --line: rgba(255, 79, 184, 0.28);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
         min-height: 100vh;
-        display: grid;
-        place-items: center;
-        background: #000;
-        color: #ff4fb8;
+        background: var(--bg);
+        color: var(--text);
         font-family: Arial, Helvetica, sans-serif;
       }
 
-      .brand {
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5rem;
+        padding: 1rem clamp(1rem, 4vw, 3rem);
+        background: rgba(0, 0, 0, 0.78);
+        border-bottom: 1px solid var(--line);
+        backdrop-filter: blur(14px);
+      }
+
+      .logo {
         display: flex;
         align-items: baseline;
+        gap: 0.6rem;
+        color: var(--pink);
+      }
+
+      .logo-text {
+        font-size: clamp(1.9rem, 5vw, 3.8rem);
+        font-weight: 900;
+        line-height: 0.9;
+        letter-spacing: 0;
+      }
+
+      .logo-byline {
+        font-size: clamp(0.75rem, 1.6vw, 1rem);
+        font-weight: 700;
+        color: var(--soft-pink);
+        white-space: nowrap;
+      }
+
+      .nav {
+        display: flex;
         gap: clamp(0.75rem, 2vw, 1.5rem);
-        padding: 2rem;
+        font-size: 0.86rem;
+        font-weight: 700;
+        color: var(--muted);
+      }
+
+      .nav a:hover,
+      .nav a:focus-visible {
+        color: var(--pink);
+      }
+
+      main {
+        width: 100%;
+      }
+
+      section {
+        min-height: 100vh;
+        display: grid;
+        align-items: center;
+        padding: 7rem clamp(1.25rem, 6vw, 5rem) 4rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-inner {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+      }
+
+      .hero {
+        text-align: center;
+      }
+
+      .hero-logo {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        gap: clamp(0.75rem, 2vw, 1.5rem);
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
       }
 
       h1 {
-        margin: 0;
+        color: var(--pink);
         font-size: clamp(4rem, 18vw, 12rem);
         font-weight: 900;
         line-height: 1;
@@ -41,23 +131,205 @@
       .byline {
         font-size: clamp(0.9rem, 2vw, 1.35rem);
         font-weight: 700;
-        color: #ff9bd3;
+        color: var(--soft-pink);
         white-space: nowrap;
       }
 
+      .hero-copy {
+        max-width: 690px;
+        margin: 1.5rem auto 0;
+        color: var(--muted);
+        font-size: clamp(1.05rem, 2.4vw, 1.55rem);
+        line-height: 1.45;
+      }
+
+      .scroll-cue {
+        display: inline-block;
+        margin-top: 3.2rem;
+        color: var(--pink);
+        font-size: 0.8rem;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .eyebrow {
+        color: var(--pink);
+        font-size: 0.82rem;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      h2 {
+        max-width: 780px;
+        margin-top: 0.75rem;
+        color: var(--text);
+        font-size: clamp(2.2rem, 7vw, 6rem);
+        line-height: 0.95;
+        letter-spacing: 0;
+      }
+
+      .section-copy {
+        max-width: 720px;
+        margin-top: 1.35rem;
+        color: var(--muted);
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        line-height: 1.65;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+        margin-top: 2.5rem;
+      }
+
+      .card {
+        min-height: 170px;
+        padding: 1.35rem;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #090006;
+      }
+
+      .card h3 {
+        margin: 0;
+        color: var(--pink);
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        margin-top: 0.8rem;
+        color: var(--muted);
+        line-height: 1.55;
+      }
+
+      .contact-line {
+        margin-top: 2rem;
+        color: var(--pink);
+        font-size: clamp(1.25rem, 3vw, 2rem);
+        font-weight: 900;
+      }
+
       @media (max-width: 520px) {
-        .brand {
+        .site-header {
+          align-items: flex-start;
+        }
+
+        .logo,
+        .hero-logo {
           flex-direction: column;
           align-items: center;
           gap: 0.5rem;
+        }
+
+        .logo {
+          align-items: flex-start;
+        }
+
+        .nav {
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          max-width: 8rem;
+          gap: 0.6rem;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
   </head>
   <body>
-    <main class="brand" aria-label="SUX by CAP Holdings">
-      <h1>SUX</h1>
-      <p class="byline">by CAP Holdings</p>
+    <header class="site-header">
+      <a class="logo" href="#top" aria-label="SUX Records by CAP Holdings">
+        <span class="logo-text">SUX</span>
+        <span class="logo-byline">by CAP Holdings</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#despre">Despre</a>
+        <a href="#sonorizari">Sonorizari</a>
+        <a href="#artisti">Artisti pare a comunitatii</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="section-inner">
+          <div class="hero-logo">
+            <h1 id="hero-title">SUX</h1>
+            <p class="byline">by CAP Holdings</p>
+          </div>
+          <p class="hero-copy">
+          </p>
+          <a class="scroll-cue" href="#despre">Scroll for more</a>
+        </div>
+      </section>
+
+      <section id="despre" aria-labelledby="despre-title">
+        <div class="section-inner">
+          <p class="eyebrow">SUX Records</p>
+          <h2 id="despre-title">O comunitate muzicala pe care te poti baza</h2>
+          <p class="section-copy">
+            SUX Records este o comunitate muzicala cu oameni dedicati si cu experienta muzicala vasta.
+            Muzica este o parte importanta din viata noastra si o tratam cu respect si seriozitate.
+          </p>
+        </div>
+      </section>
+
+      <section id="sonorizari" aria-labelledby="sonorizari-title">
+        <div class="section-inner">
+          <p class="eyebrow">Activitati</p>
+          <h2 id="sonorizari-title">Sonorizari</h2>
+          <div class="grid">
+            <article class="card">
+              <h3>Andrei Afloarei</h3>
+              <p>Producator muzical</p>
+              <p>Inginer de sunet live</p>
+            </article>
+            <article class="card">
+              <h3>Armand Popa</h3>
+              <p>Producator muzical</p>
+              <p>Inginer de sunet live</p>
+            </article>
+            <article class="card">
+              <h3>Adi Zanoaga</h3>
+              <p>Tehnician sunet</p>
+              <p>Inginer de sunet live</p>
+              <p>Specialist automatizari</p>
+            </article>
+              <article class="card">
+              <h3>Alex Popa</h3>
+              <p>Tehnician sunet</p>
+              <p>Inginer de sunet live</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="artisti" aria-labelledby="artisti-title">
+        <div class="section-inner">
+          <p class="eyebrow">Artisti colaboratori</p>
+          <!-- <h2 id="artists-title">Trupe parte a comunicatii SUX</h2> -->
+          <p class="section-copy">
+           Not my cup of tea
+          </p>
+          <p class="section-copy">
+           Armand Popa
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="section-inner">
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Ne puteti contacta pe instagram sau pe email</h2>
+          <p class="section-copy">
+            Raspundem repede pentru ca timpul este o resursa importanta
+          </p>
+          <p class="contact-line">sux.rec@gmail.com</p>
+        </div>
+      </section>
     </main>
   </body>
 </html>
