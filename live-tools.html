@@ -227,8 +227,12 @@
         tools.style.display = "block";
       }
 
-      if (sessionStorage.getItem("suxLiveToolsAccess") === "true") {
+      const params = new URLSearchParams(window.location.search);
+
+      if (params.get("unlocked") === "1" && sessionStorage.getItem("suxLiveToolsAccess") === "true") {
         showTools();
+      } else {
+        sessionStorage.removeItem("suxLiveToolsAccess");
       }
 
       form.addEventListener("submit", (event) => {
