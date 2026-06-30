@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Live tools - SUX Records</title>
+    <title>SUX tools - SUX Records</title>
     <style>
       :root {
         color-scheme: dark;
@@ -133,7 +133,7 @@
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 1rem;
         margin-top: 2.5rem;
       }
@@ -181,7 +181,7 @@
     <main>
       <div class="section-inner gate-screen">
         <p class="eyebrow">SUX Records</p>
-        <h1>Live tools</h1>
+        <h1>SUX tools</h1>
         <p class="copy">Acces intern pentru conexiunile de live.</p>
         <form class="gate" id="gate-form">
           <label for="password">Parolă</label>
@@ -189,32 +189,36 @@
           <button type="submit">Intră</button>
           <p class="error" id="error">Parola nu este corectă.</p>
         </form>
-        <a class="back-link" href="index.html#contact">Înapoi la site</a>
+        <a class="back-link" href="index.html#top">Înapoi la site</a>
       </div>
 
       <div class="section-inner tools" id="tools">
-        <p class="eyebrow">Live tools</p>
+        <p class="eyebrow">SUX tools</p>
         <h1>Routere live</h1>
         <p class="copy">Alege routerul pentru care vrei codul QR de conectare.</p>
         <div class="grid">
           <a class="card" href="router-live-1.html">
-            <h2>Router live 1</h2>
-            <p>Cod QR pentru primul router de live.</p>
+            <h2>SUX</h2>
+            <p>Routerul din sala de repetiții de la SUX.</p>
           </a>
           <a class="card" href="router-live-2.html">
-            <h2>Router live 2</h2>
-            <p>Cod QR pentru al doilea router de live.</p>
+            <h2>SUX_LIVE</h2>
+            <p>TP Link-ul din Rack.</p>
           </a>
           <a class="card" href="router-live-3.html">
-            <h2>Router live 3</h2>
-            <p>Cod QR pentru al treilea router de live.</p>
+            <h2>SUX MIXER</h2>
+            <p>TP Link alb cu 2 antene, routerul vechi.</p>
+          </a>
+          <a class="card" href="router-live-4.html">
+            <h2>SUX REMOTE</h2>
+            <p>Mercursys REMOTE.</p>
           </a>
         </div>
-        <a class="back-link" href="index.html#contact">Înapoi la site</a>
+        <a class="back-link" href="index.html#top">Înapoi la site</a>
       </div>
     </main>
     <script>
-      const accessPassword = "666666";
+      const accessPasswordHash = "94edf28c6d6da38fd35d7ad53e485307f89fbeaf120485c8d17a43f323deee71";
       const form = document.querySelector("#gate-form");
       const input = document.querySelector("#password");
       const error = document.querySelector("#error");
@@ -229,16 +233,25 @@
 
       const params = new URLSearchParams(window.location.search);
 
-      if (params.get("unlocked") === "1" && sessionStorage.getItem("suxLiveToolsAccess") === "true") {
-        showTools();
-      } else {
+      if (params.get("login") === "1") {
         sessionStorage.removeItem("suxLiveToolsAccess");
+      } else if (sessionStorage.getItem("suxLiveToolsAccess") === "true") {
+        showTools();
       }
 
-      form.addEventListener("submit", (event) => {
+      async function sha256(value) {
+        const data = new TextEncoder().encode(value);
+        const digest = await crypto.subtle.digest("SHA-256", data);
+
+        return Array.from(new Uint8Array(digest))
+          .map((byte) => byte.toString(16).padStart(2, "0"))
+          .join("");
+      }
+
+      form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        if (input.value === accessPassword) {
+        if (await sha256(input.value) === accessPasswordHash) {
           showTools();
           return;
         }
